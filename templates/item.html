@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% block content %}
+
+
+	<div class="row">
+		<div class="col-md-12">
+			<h1>{{item.title}}</h1>
+			<p>
+				{{item.description}}
+			</p>
+		</div>
+	</div>
+    {%if 'username' in session %}
+                <a href="{{url_for('editItem',category_name = category.name, item_title=item.title)}}">Edit</a>
+                <a href="{{url_for('deleteItem',category_name = category.name, item_title=item.title)}}">Delete</a>
+    {% endif %}
+{% endblock %}
